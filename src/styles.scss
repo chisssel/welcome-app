@@ -1,5 +1,30 @@
 @use "sass:map";
 
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+@use 'scss/theme-colors' as test-theme;
+
+html {
+  @include mat.theme((
+    color: (
+      theme-type: color-scheme,
+      primary: test-theme.$primary-palette,
+      tertiary: test-theme.$tertiary-palette,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+
+  @include mat.ripple-overrides((
+    color: hsla(120, 100%, 25%, 0.12)
+  ));
+
+  @include mat.button-overrides((
+    filled-container-shape: 8px
+  ));
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 
 $typography-map: (
@@ -203,3 +228,6 @@ body {
     color: var(--md-sys-color-on-surface-variant);
   }
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

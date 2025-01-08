@@ -1,11 +1,15 @@
 import { Component } from '@angular/core';
 import {ListItemComponent} from '../list-item/list-item.component';
 import {IListItem} from '../list-item/list-item';
+import {MatButtonModule} from '@angular/material/button';
+import {MatRippleModule} from '@angular/material/core';
 
 @Component({
   selector: 'app-list-container',
   imports: [
-    ListItemComponent
+    ListItemComponent,
+    MatButtonModule,
+    MatRippleModule,
   ],
   templateUrl: './list-container.component.html',
   standalone: true,
